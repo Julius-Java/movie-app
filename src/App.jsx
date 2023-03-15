@@ -15,14 +15,33 @@ function App() {
 
     const searchMovies = async (title) => {
         try {
-            const response = await fetch(`${API_URL}&s=${title}`)
-            const data = await response.json()
-            setMovies(data.Search)
-        } catch(error) {
-            console.log(error)
+            const response = await fetch(`${API_URL}&s=${title}`);
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            if (!data.Search) {
+            throw new Error(`API error! Response: ${JSON.stringify(data)}`);
+            }
+            console.log(data);
+            setMovies(data.Search);
+        } catch (error) {
+            console.error(error);
         }
+    };
 
-    }
+
+    // const searchMovies = async (title) => {
+    //     try {
+    //         const response = await fetch(`${API_URL}&s=${title}`)
+    //         const data = await response.json()
+    //         console.log(data)
+    //         setMovies(data.Search)
+    //     } catch(error) {
+    //         console.log(error)
+    //     }
+
+    // }
 
     useEffect(() => {
         searchMovies("Spiderman")
