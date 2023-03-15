@@ -67,6 +67,7 @@ function App() {
                     </div>
                 ) : (
                     <div className="empty">
+                        {console.log("API didn't return any result")}
                         <h2>No movies found</h2>
                     </div>
                 )
