@@ -62,12 +62,14 @@ function App() {
             {
                 movies?.length > 0 ? (
                     <div className="container">
+                        {console.log("Movies fetched successfully")}
                         {movies.map((movie, index) => {
                             return (<Movie key={index} movie={movie} />)
                         })}
                     </div>
                 ) : (
                     <div className="empty">
+                        {console.log("No movies found")}
                         <h2>No movies found</h2>
                     </div>
                 )
