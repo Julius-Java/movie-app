@@ -3,7 +3,7 @@ import "./App.css"
 import SearchIcon from "/images/search-icon.svg"
 import Movie from "./components/Movie"
 
-const API_KEY = import.meta.env.VITE_MOVIE_API_KEY
+const API_KEY = process.env.VITE_MOVIE_API_KEY;
 
 const API_URL = "http://omdbapi.com?apikey=" + API_KEY
 
