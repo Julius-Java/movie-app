@@ -16,11 +16,11 @@ function App() {
         try {
             const response = await fetch(`${API_URL}&s=${title}`);
             if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = await response.json();
             if (!data.Search) {
-            throw new Error(`API error! Response: ${JSON.stringify(data)}`);
+                throw new Error(`API error! Response: ${JSON.stringify(data)}`);
             }
             console.log(data);
             setMovies(data.Search);
