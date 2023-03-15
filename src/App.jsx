@@ -14,18 +14,13 @@ function App() {
     const [movies, setMovies] = useState([])
 
     const searchMovies = async (title) => {
-        // try {
-        //     const response = await fetch(`${API_URL}&s=${title}`)
-        //     // const data = await response.json()
-        //     const data = await JSON.parse(response)
-        //     setMovies(data.Search)
-        // } catch(error) {
-        //     console.log(error)
-        // }
-
-        const response = await fetch(`${API_URL}&s=${title}`)
-        const data = await response.json()
-        setMovies(data.Search)
+        try {
+            const response = await fetch(`${API_URL}&s=${title}`)
+            const data = await response.json()
+            setMovies(data.Search)
+        } catch(error) {
+            console.log(error)
+        }
 
     }
 
